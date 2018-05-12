@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 
-	例如namespace="com.huanle.mapping.userMapper"就是com.huanle.mapping(包名)+userMapper(UserMapper.xml文件去除后缀) -->
+	例如namespace="com.huanle.mapping.userMapper"就是com.huanle.mapping(包名)+userMapper(UserMapper.xml文件去除后缀)
+	注意，这里namespace一般是指向dao层的interface，如果直接用SqlSession 实例来直接执行已映射的SQL语句：
+	session.selectOne("com.yihaomen.mybatis.models.UserMapper.selectUserByID", 1)
+	就不用写一个interface了 -->
 <mapper namespace="com.huanle.mapping.UserMapper">
 
 	<!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，
